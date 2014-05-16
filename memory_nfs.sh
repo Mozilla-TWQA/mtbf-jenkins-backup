@@ -1,5 +1,3 @@
-cd $WORKSPACE/tests/python/gaia-ui-tests/gaiatest/
-
 ### ZIP all the memory report files
 if [ -e about-memory.zip ];then
    echo "Removing Old Memory Report Files"
@@ -25,6 +23,8 @@ if [ -z "$GET_MINIDUMP" ] || [ "$GET_MINIDUMP" == "true" ]; then
     B2G_PID=$(adb shell b2g-ps | grep b2g -m 1 | awk -F" " '{print $3}')
     echo "B2G pid: $B2G_PID"
     adb shell kill -11 $B2G_PID
+
+    sleep 10
     adb pull /data/b2g/mozilla/Crash\ Reports/pending/ . || echo 0
     
     unzip $WORKSPACE/symbols.zip -d symbols/
