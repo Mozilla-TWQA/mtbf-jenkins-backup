@@ -3,6 +3,8 @@
 ### Enter virtual environment
 source .env/bin/activate
 
+cd mtbf_driver
+
 ###    may need to make environmental variables for testvars file
 cp $TESTVAR testvars.json
 
