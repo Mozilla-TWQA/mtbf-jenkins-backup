@@ -21,4 +21,9 @@ adb root
 sleep 60
 
 ### port forward
-adb forward tcp:2828 tcp:2828
+if [[ -z "$PORT" ]]; then
+    adb forward tcp:2828 tcp:2828
+else
+    adb forward tcp:$PORT tcp:2828
+fi
+
